@@ -10,9 +10,9 @@ const swaggerRouter = Router();
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
-    title: 'project title',
+    title: 'Narviesland',
     version: '1.0.0',
-    description: 'description'
+    description: 'Web game'
   },
   basepath: '/'
 };
