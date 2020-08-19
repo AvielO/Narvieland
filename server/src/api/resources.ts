@@ -20,6 +20,10 @@ const router = Router();
  *        200:
  *          description: Your resources
  */
-router.get('/resources', async (req, res) => {});
+router.get('/resources', async (req, res) => {
+  const username = req.params;
+  console.log(username);
+  res.send({ username });
+});
 
 export default router;

@@ -22,7 +22,11 @@ const router = Router();
  *        400:
  *          description: cde
  */
-router.get('/employees', async (req, res) => {});
+router.get('/employees', async (req, res) => {
+  const username = req.params;
+  console.log(username);
+  res.send({ username });
+});
 
 /**
  * @swagger
@@ -44,6 +48,10 @@ router.get('/employees', async (req, res) => {});
  *        400:
  *          description: cde
  */
-router.put('/employees', async (req, res) => {});
+router.put('/employees', async (req, res) => {
+  const username = req.params;
+  console.log(username);
+  res.send({ username });
+});
 
 export default router;

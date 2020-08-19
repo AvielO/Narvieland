@@ -22,7 +22,11 @@ const router = Router();
  *        400:
  *          description: cde
  */
-router.get('/login', async (req, res) => {});
+router.get('/login', async (req, res) => {
+  const username = req.params;
+  console.log(username);
+  res.send({ username });
+});
 
 /**
  * @swagger
@@ -44,7 +48,11 @@ router.get('/login', async (req, res) => {});
  *        400:
  *          description: cde
  */
-router.post('/signup', async (req, res) => {});
+router.post('/signup', async (req, res) => {
+  const username = req.params;
+  console.log(username);
+  res.send({ username });
+});
 
 /**
  * @swagger
@@ -66,6 +74,10 @@ router.post('/signup', async (req, res) => {});
  *        400:
  *          description: cde
  */
-router.get('/logout', async (req, res) => {});
+router.get('/logout', async (req, res) => {
+  const username = req.params;
+  console.log(username);
+  res.send({ username });
+});
 
 export default router;
