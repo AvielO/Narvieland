@@ -1,3 +1,3 @@
-export default interface GameRepository {
-  signin(username: string, password: string): Boolean;
+export default interface GameRepo {
+  signin(username: string, password: string): Promise<boolean>;
 }

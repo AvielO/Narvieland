@@ -1,7 +1,11 @@
-import gameRepository from '../core/repository';
+import GameRepo from '../core/repository';
 
-export class GameRepo implements gameRepository {
-  signin = (username: string, password: string): boolean => {
-    return false;
+export class SqlGameRepo implements GameRepo {
+  signin = async (username: string, password: string): Promise<boolean> => {
+    try {
+      return false;
+    } catch (error) {
+      throw Error('Error');
+    }
   };
 }

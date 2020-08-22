@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { signin } from '../app/authenticationActions';
+import { sqlGameRepo } from '../compositionRoot';
 
 const router = Router();
 
@@ -30,10 +31,14 @@ const router = Router();
  *          description: cde
  */
 router.get('/login', async (req, res) => {
-  const { username, password } = req.query;
-  signin(username as string, password as string);
+  try {
+    const { username, password } = req.query;
+    const isUserConnected = await signin(username as string, password as string, sqlGameRepo);
 
-  res.send({ isUserConnected: false, message: 'Connected' }).status(200);
+    res.send({ isUserConnected }).status(200);
+  } catch {
+    res.send({ message: 'You are not connected' }).status(500);
+  }
 });
 
 /**
