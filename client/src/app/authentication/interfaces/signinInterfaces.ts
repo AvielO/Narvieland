@@ -5,5 +5,4 @@ export interface SigninCradential {
 
 export interface SigninResponse {
     isUserConnected: boolean;
-    errorMessage: string;
 }
