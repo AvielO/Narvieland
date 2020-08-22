@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
-
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 

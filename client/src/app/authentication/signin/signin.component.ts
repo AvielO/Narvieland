@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,14 +7,22 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  constructor() { }
   username: string;
   password: string;
 
+  constructor(private authenticationService: AuthenticationService) { }
   ngOnInit(): void {
   }
 
   onSubmit() {
-    
+    let loginCradential = { username: this.username, password: this.password };
+    this.authenticationService.signin(loginCradential).subscribe({
+      next: () => {
+        console.log("The userConnected");
+      },
+      error: ({ error }) => {
+        console.log(error);
+      }
+    });
   }
 }
