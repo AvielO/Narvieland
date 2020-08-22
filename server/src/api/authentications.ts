@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { signin } from '../app/authenticationActions';
 
 const router = Router();
 
@@ -10,12 +11,18 @@ const router = Router();
  *      summary: Connecting to the game
  *      tags: [Authentications Actions]
  *      parameters:
- *        - in: path
+ *        - in: query
  *          name: username
  *          schema:
  *            type: string
  *          required: true
- *          description: example of parameter
+ *          description: Client's Username
+ *        - in: query
+ *          name: password
+ *          schema:
+ *            type: string
+ *          required: true
+ *          description: Client's password
  *      responses:
  *        200:
  *          description: abc
@@ -23,9 +30,10 @@ const router = Router();
  *          description: cde
  */
 router.get('/login', async (req, res) => {
-  const username = req.params;
-  console.log(username);
-  res.send({ username });
+  const { username, password } = req.query;
+  signin(username as string, password as string);
+
+  res.send({ isUserConnected: false, message: 'Connected' }).status(200);
 });
 
 /**

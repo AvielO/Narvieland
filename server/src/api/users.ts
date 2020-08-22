@@ -21,6 +21,7 @@ const router = Router();
  *          description: User information
  */
 router.get('/user', async (req, res) => {
+  console.log('asdasdasdsa');
   const username = req.params;
   console.log(username);
   res.send({ username });
